@@ -1,1 +1,22 @@
-/* TODO Add site wide styles */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, button, input {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button, input {
+  font-size: 1.1em;
+}
+
+.wrapper {
+  padding: 1em;
+}
