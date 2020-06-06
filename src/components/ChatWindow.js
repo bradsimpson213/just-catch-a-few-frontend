@@ -20,13 +20,13 @@ const ChatWindow = ({ messages, handleSendMessage, handleLeave }) => {
 
     return (
         <div className={styles.wrapper}>
-            <div className={styles.chat_room}>
+            <div className={styles.chat_window}>
                 <input type='text' value={message} onChange={handleOnChange} />
                 <button type='button' onClick={handleSendOnClick}>Send</button>
                 <button type='button' onClick={handleLeaveOnClick}>Leave</button>
                 <div className={styles.messages}>
                     {messages.map(m => (
-                        <p key={m.id}>({m.created.toLocaleTimeString()}) <strong>{m.username}:</strong> {m.message}</p>
+                        <p key={m.id}><strong>{m.username}:</strong> {m.message}</p>
                     ))}
                 </div>
             </div>

@@ -43,8 +43,9 @@ const Home = ({ updateUsername }) => {
 
     return (
         <div className='wrapper'>
-            <h1>Welcome to the WebSockets Chat Room!</h1>
-            <p>Please provide your username and
+            <img src="https://fontmeme.com/permalink/200606/73fb7f72d9cf251776321c0a872c0693.png" alt="pokemon-font" />
+            <img src="https://fontmeme.com/permalink/200606/c750fb7844c7368a811973ef857af248.png" alt="pokemon-font" />
+           <p>Please provide your username and
         click the "Chat Now" button to start chatting.</p>
             <ValidationErrors errors={errors} />
             <form onSubmit={onSubmit}>
