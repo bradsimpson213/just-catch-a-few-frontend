@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import styles from './Home.module.css';
 
 const ValidationErrors = ({ errors }) => {
     if (errors === null || errors.length === 0) {
@@ -42,17 +43,21 @@ const Home = ({ updateUsername }) => {
     };
 
     return (
-        <div className='wrapper'>
-            <img src="https://fontmeme.com/permalink/200606/73fb7f72d9cf251776321c0a872c0693.png" alt="pokemon-font" />
-            <img src="https://fontmeme.com/permalink/200606/c750fb7844c7368a811973ef857af248.png" alt="pokemon-font" />
-           <p>Please provide your username and
-        click the "Chat Now" button to start chatting.</p>
-            <ValidationErrors errors={errors} />
-            <form onSubmit={onSubmit}>
-                <input type='text' value={username}
-                    onChange={onChange} />
-                <button>Chat Now</button>
-            </form>
+        <div className={styles.wrapper}>
+            <div className={styles.logowrapper}>
+                <img src="https://fontmeme.com/permalink/200606/73fb7f72d9cf251776321c0a872c0693.png" alt="pokemon-font" />
+                <img className={styles.pokeball} src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png" alt="pokeball-image" />
+                <img src="https://fontmeme.com/permalink/200606/c750fb7844c7368a811973ef857af248.png" alt="pokemon-font" />
+            </div>
+            <div className={styles.loginbox}>
+                <ValidationErrors errors={errors} />
+                <form onSubmit={onSubmit}>
+                    <label>User Login</label>
+                    <input type='text' value={username}
+                        onChange={onChange} />
+                    <button>Login</button>
+                </form>
+            </div>
         </div>
     );
 }

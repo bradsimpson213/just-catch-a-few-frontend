@@ -1,0 +1,41 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(https://i.pinimg.com/originals/fc/65/d4/fc65d4f8b066154d515e166a8761a8e9.jpg);
+    background-size: cover;
+    background-position: center;
+    border: 5px solid darkgray;
+}
+
+.wrapper {
+  padding: 1em;
+}
+
+.logowrapper {
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.pokeball {
+    height: 200px;
+    width: 200px;
+    align-self: center;
+}
+
+.loginbox {
+    background-color: gray;
+    border: 2px solid white;
+    border-radius: 25px;
+    width: 250px;
+    height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+}

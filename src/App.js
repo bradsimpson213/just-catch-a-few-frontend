@@ -56,12 +56,9 @@ function App() {
     };
   }, [])
 
-  // This effect is called whenever the `messages` state variable is changed.
   useEffect(() => {
     if (webSocket.current !== null) {
-      // Every time the messages state variable changes
-      // we need to reassign the `onmessage` event listener
-      // to wrap around the updated state variable value.
+    
       webSocket.current.onmessage = (e) => {
         console.log(`Processing incoming message ${e.data}...`);
 

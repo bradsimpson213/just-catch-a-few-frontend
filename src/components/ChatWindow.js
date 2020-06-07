@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import styles from './ChatWindow.module.css';
 
 const ChatWindow = ({ messages, handleSendMessage, handleLeave }) => {
