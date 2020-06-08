@@ -18,11 +18,16 @@ const ValidationErrors = ({ errors }) => {
 };
 
 const Home = ({ updateUsername }) => {
-    const [username, setUsername] = useState('');
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
-    const onChange = (e) => {
-        setUsername(e.target.value);
+    const changeUser = (e) => {
+        setUserName(e.target.value);
+    };
+
+    const changePassword = (e) => {
+        setPassword(e.target.value);
     };
 
     const onSubmit = (e) => {
@@ -30,7 +35,7 @@ const Home = ({ updateUsername }) => {
 
         const errorsToSet = [];
 
-        if (!username) {
+        if (!userName) {
             errorsToSet.push('Please provide a username.');
         }
 
@@ -39,22 +44,25 @@ const Home = ({ updateUsername }) => {
             return;
         }
 
-        updateUsername(username);
+        updateUsername(userName);
     };
 
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.homepage}>
             <div className={styles.logowrapper}>
                 <img src="https://fontmeme.com/permalink/200606/73fb7f72d9cf251776321c0a872c0693.png" alt="pokemon-font" />
-                <img className={styles.pokeball} src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png" alt="pokeball-image" />
+                <img className={styles.pokeball} src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png" alt="pokeball" />
                 <img src="https://fontmeme.com/permalink/200606/c750fb7844c7368a811973ef857af248.png" alt="pokemon-font" />
             </div>
             <div className={styles.loginbox}>
                 <ValidationErrors errors={errors} />
                 <form onSubmit={onSubmit}>
                     <label>User Login</label>
-                    <input type='text' value={username}
-                        onChange={onChange} />
+                    <input type='text' value={userName}
+                        onChange={changeUser} placeholder="User name..." />
+                        <label>Password</label>
+                    <input type='text' value={password}
+                        onChange={changePassword} placeholder="Password..." />
                     <button>Login</button>
                 </form>
             </div>

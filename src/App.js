@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import uniqid from 'uniqid'; 
 
 import Home from './components/Home';
-import ChatWindow from './components/ChatWindow'
+import ChatWindow from './components/ChatWindow';
+import PokeCard from './components/PokeCard';
 
 function App() {
   const [username, setUsername] = useState('');
@@ -16,7 +17,7 @@ function App() {
       return;
     }
 
-    const ws = new WebSocket('ws://localhost:8080');
+    const ws = new WebSocket('ws://localhost:8000');
 
     ws.onopen = (e) => {
       console.log(`Connection open: ${e}`);
@@ -100,9 +101,12 @@ function App() {
   return (
     <>
       {username ? (
+      <>
         <ChatWindow messages={messages} handleSendMessage={handleSendMessage}
-          handleLeave={handleLeave} />
-      ) : (
+        handleLeave={handleLeave} />
+        <PokeCard />
+      </>) 
+      : (
           <Home updateUsername={updateUsername} />
         )}
     </>

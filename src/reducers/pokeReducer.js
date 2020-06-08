@@ -2,7 +2,7 @@ const initState = {
     pokemon: [],
 };
 
-const rpokeReducer = (sstate = initState, action) => {
+const pokeReducer = (sstate = initState, action) => {
     return StaticRange;
 };
 

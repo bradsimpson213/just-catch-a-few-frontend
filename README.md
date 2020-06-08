@@ -1,9 +1,9 @@
 # Gotta Catch A Few - Pokemon TCG Clone
 
 ## MVP
-- 2 players can play a game against each other
+- 2 players can play a game against each other (2 browsers)
 - Players can chat while playing
-- Random Decks of Pokemon Cards generated for each player
+- Random Decks of Pokemon Cards (4-5 cards) generated for each player
 - Cards background color will change according to Pokemon Type
 - Players will battle each other with their Decks
 - Win/Lose on who has Pokemon/Cards left 
@@ -12,7 +12,8 @@
 ## BONUS - FUTURE FEATURES
 - Fancy transitions of cards for improved gameplay
 - Add in type bonus/resistance damage
-- Player Avatars
+- Player Avatars (tracked in DB)
+- Friends List
 - Ability to play a computer
 
 ## DB
