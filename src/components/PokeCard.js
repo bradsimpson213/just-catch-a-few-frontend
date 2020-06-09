@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "./PokeCard.module.css";
-
-import { connect } from "react-redux";
-import { loadPokemon } from "../store/pokemonStore";
 
 
 class PokeCard extends React.Component {
@@ -10,19 +7,9 @@ class PokeCard extends React.Component {
         super(props)
     };
 
-    componentDidMount() {
-        this.props.loadPokemon();
-        
-    };
-
-    componentDidUpdate() {
-        console.log("from PokeCard update")
-        console.log(this.props.pokemon);
-    }
-
 
     render() {
-        // const { name, hp, imageUrl, move1, move2 } = this.props.pokemon;
+       
         return (
           <div className={styles.cardBody}>
             <header className={styles.pokeHeader}>
@@ -30,7 +17,7 @@ class PokeCard extends React.Component {
               <span></span>
             </header>
             <div className={styles.imageWrapper}>
-              <img className={styles.pokeImage} alt="pokemon-image" />
+              <img className={styles.pokeImage} alt="pokemon-card" />
             </div>
             <div className={styles.pokeStats}>
               <div></div>
@@ -41,15 +28,4 @@ class PokeCard extends React.Component {
     };
 };
 
-
-const mapStateToProps = (state) => {
-  return { pokemon: state.pokemon };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loadPokemon: () => dispatch(loadPokemon()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PokeCard);
+export default PokeCard;

@@ -8,22 +8,24 @@ const LOAD = "pokedex/pokemon/LOAD";
 export const load = (pokemon) => ({ type: LOAD, pokemon });
 
 export const loadPokemon = () => async (dispatch) => {
-  
-    const response = await fetch(`${baseUrl}/pokemon`);
-    if (response.ok) {
-        const pokemon = await response.json();
-        console.log(pokemon)
-        dispatch(load(pokemon));
+    for (let i = 1; i <= 4; i++) {
+        const response = await fetch(`${baseUrl}/pokemon`);
+        if (response.ok) {
+            const pokemon = await response.json();
+            console.log(pokemon)
+            dispatch(load(pokemon));
+        };
     };
 };
 
 export default function pokeReducer(state = initialState, action) {
-   
     Object.freeze(state);
     if(action.type === LOAD){
         const newState = [...state]
-        newState.push({ pokemon: action.pokemon });
-        console.log(newState);
-        return newState;
+        if(newState.length < 4) {
+            newState.push({ pokemon: action.pokemon });
+            console.log(newState);
+            return newState;
+        } else return newState;
     } else return state;
 };

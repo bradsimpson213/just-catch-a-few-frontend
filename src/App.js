@@ -4,25 +4,19 @@ import uniqid from 'uniqid';
 import Home from './components/Home';
 import GameBoard from './components/GameBoard';
 
-
 function App() {
   const [username, setUsername] = useState('');
   const [messages, setMessages] = useState([]);
   const webSocket = useRef(null);
-
+    
   useEffect(() => {
-    // If we don't have a username
-    // then we don't need to create a WebSocket.
-    if (!username) {
+     if (!username) {
       return;
     }
 
     const ws = new WebSocket('ws://localhost:8000');
-
     ws.onopen = (e) => {
       console.log(`Connection open: ${e}`);
-      // Set the messages state variable to trigger
-      // the other effect to set the `onmessage` event listener.
       setMessages([]);
     };
 
@@ -38,9 +32,7 @@ function App() {
     };
 
     webSocket.current = ws;
-
-    // This function will be called when the next time
-    // that the `username` state variable changes.
+ 
     return function cleanup() {
       if (webSocket.current !== null) {
         webSocket.current.close();
@@ -48,7 +40,6 @@ function App() {
     };
   }, [username]);
 
-  // This effect will be called when the `App` component unmounts.
   useEffect(() => {
     return function cleanup() {
       if (webSocket.current !== null) {

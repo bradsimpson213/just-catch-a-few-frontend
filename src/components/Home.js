@@ -55,21 +55,17 @@ const Home = ({ updateUsername }) => {
             alt="pokemon-font"
           />
         </div>
-        <div className={styles.imagewrapper}>
-          <img className={styles.text1}
-            src="https://fontmeme.com/permalink/200609/6fa4a35dd9ec595a7d69635857bf8bb5.png"
-            alt="pokemon-font"
-          />
-          <img
-            className={styles.pokeball}
-            src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png"
-            alt="pokeball"
-          />
-          <img className={styles.text2}
-            src="https://fontmeme.com/permalink/200609/b5a0c7c17fab56eeaae061832ed7850f.png"
-            alt="pokemon-font"
-          />
-        </div>
+            <div className={styles.imagewrapper}>
+                <img className={styles.text1}
+                    src="https://fontmeme.com/permalink/200609/6fa4a35dd9ec595a7d69635857bf8bb5.png"
+                    alt="pokemon-font" />
+                <img  className={styles.pokeball}
+                    src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png"
+                    alt="pokeball" />
+                <img className={styles.text2}
+                     src="https://fontmeme.com/permalink/200609/b5a0c7c17fab56eeaae061832ed7850f.png"
+                    alt="pokemon-font"/>
+            </div>
         <div className={styles.loginbox}>
           <ValidationErrors errors={errors} />
           <form onSubmit={onSubmit}>
