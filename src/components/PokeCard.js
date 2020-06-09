@@ -1,24 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./PokeCard.module.css";
 
-class PokeCard extends React.Component {
 
-    render() {
 
-        return(
-            <div className={styles.cardBody}>
-                <header className={styles.pokeHeader}>Spiritomb
-                </header>
-                <div className={styles.imageWrapper}>
+const PokeCard = () => {
+    const [ pokemon, setPokemon ] = useState('')
 
-                </div>
-                <div className={styles.pokeStats}>
+const loadPokemon = async () => {
+    const pokeId = Math.floor((Math.random()*899)+1);
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeId}/`);
+    if (response.ok) {
+        const pokeInfo = await response.json();
+        setPokemon(pokeInfo);
+    };
+};
 
-                </div>
-            </div>
-        )
-    }
+useEffect(() => {
+    loadPokemon();
+}, []);
 
-}
+console.log(pokemon);
+console.log(pokemon.name)
 
-export default PokeCard;
+    
+return (
+  <div className={styles.cardBody}>
+    <header className={styles.pokeHeader}>{pokemon.name}</header>
+    <div className={styles.imageWrapper}></div>
+    <div className={styles.pokeStats}></div>
+  </div>
+);};
+
+export default (PokeCard);

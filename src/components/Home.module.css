@@ -5,32 +5,38 @@
     background-size: cover;
     background-position: center;
     border: 5px solid darkgray;
+    display: grid;
+    grid-template-columns: 10vw 20vw 20vw 20vw 10vw;
+    grid-template-rows: auto;
 }
 
 .logowrapper {
     padding: 10px;
     margin: 10px;
+    grid-row-start: 1;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    justify-content: center;
+}
+
+.imagewrapper{
+    grid-row-start: 2;
+    grid-column-start: 2;
     display: flex;
-    flex-direction: column;
-    align-content: center;
+    flex-direction: row;
 }
 
 .pokeball {
     height: 200px;
     width: 200px;
-    align-self: center;
 }
 
 .loginbox {
     background-color: gray;
     border: 2px solid white;
     border-radius: 25px;
-    width: 250px;
-    height: 150px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
+    grid-row-start: 3;
+    grid-column-start: 3;
     padding: 20px;
     text-align: center;
     font-weight: bold;

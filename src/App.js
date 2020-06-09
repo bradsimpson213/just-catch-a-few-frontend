@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import uniqid from 'uniqid'; 
 
 import Home from './components/Home';
-import ChatWindow from './components/ChatWindow';
-import PokeCard from './components/PokeCard';
+import GameBoard from './components/GameBoard';
+
 
 function App() {
   const [username, setUsername] = useState('');
@@ -101,14 +101,10 @@ function App() {
   return (
     <>
       {username ? (
-      <>
-        <ChatWindow messages={messages} handleSendMessage={handleSendMessage}
-        handleLeave={handleLeave} />
-        <PokeCard />
-      </>) 
-      : (
-          <Home updateUsername={updateUsername} />
-        )}
+        <GameBoard messages={messages} handleSendMessage={handleSendMessage}
+        handleLeave={handleLeave} />) 
+      : ( <Home updateUsername={updateUsername} />
+        )};
     </>
   );
 }

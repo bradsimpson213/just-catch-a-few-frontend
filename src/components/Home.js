@@ -48,25 +48,49 @@ const Home = ({ updateUsername }) => {
     };
 
     return (
-        <div className={styles.homepage}>
-            <div className={styles.logowrapper}>
-                <img src="https://fontmeme.com/permalink/200606/73fb7f72d9cf251776321c0a872c0693.png" alt="pokemon-font" />
-                <img className={styles.pokeball} src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png" alt="pokeball" />
-                <img src="https://fontmeme.com/permalink/200606/c750fb7844c7368a811973ef857af248.png" alt="pokemon-font" />
-            </div>
-            <div className={styles.loginbox}>
-                <ValidationErrors errors={errors} />
-                <form onSubmit={onSubmit}>
-                    <label>User Login</label>
-                    <input type='text' value={userName}
-                        onChange={changeUser} placeholder="User name..." />
-                        <label>Password</label>
-                    <input type='text' value={password}
-                        onChange={changePassword} placeholder="Password..." />
-                    <button>Login</button>
-                </form>
-            </div>
+      <div className={styles.homepage}>
+        <div className={styles.logowrapper}>
+          <img
+            src="https://fontmeme.com/permalink/200609/8ce6cb32a1aa9687a0eec06ed9e5d906.png"
+            alt="pokemon-font"
+          />
         </div>
+        <div className={styles.imagewrapper}>
+          <img
+            src="https://fontmeme.com/permalink/200609/6fa4a35dd9ec595a7d69635857bf8bb5.png"
+            alt="pokemon-font"
+          />
+          <img
+            className={styles.pokeball}
+            src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png"
+            alt="pokeball"
+          />
+          <img
+            src="https://fontmeme.com/permalink/200609/b5a0c7c17fab56eeaae061832ed7850f.png"
+            alt="pokemon-font"
+          />
+        </div>
+        <div className={styles.loginbox}>
+          <ValidationErrors errors={errors} />
+          <form onSubmit={onSubmit}>
+            <label>User Login</label>
+            <input
+              type="text"
+              value={userName}
+              onChange={changeUser}
+              placeholder="User name..."
+            />
+            <label>Password</label>
+            <input
+              type="text"
+              value={password}
+              onChange={changePassword}
+              placeholder="Password..."
+            />
+            <button>Login</button>
+          </form>
+        </div>
+      </div>
     );
 }
 
