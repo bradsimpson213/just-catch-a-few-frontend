@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from "redux";
 import { Provider } from "react-redux";
 
 import './index.css';
 import App from './App';
-import pokeReducer from "./reducers/pokeReducer"; 
+import configureStore from "./store/configureStore";
 
 
-const store = createStore(pokeReducer);
+const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>

@@ -25,10 +25,12 @@
 - User DB interface
 - User Auth/Verification
 - Websockets
+- PokeAPI for Pokemon data/images
 
 ## FRONTEND
 - React/Redux
-- PokeAPI for Pokemon data/images
+- PokeAPI for Pokemon data
+- Pokemon.com for Pokemon images (pass URL to front end after creating with Pokemon data)
 
 
 ## TECHNOLOGY USED

@@ -10,6 +10,8 @@
 
 .pokeHeader{
     height: 20px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .imageWrapper{
@@ -18,8 +20,13 @@
     border-radius: 10px;
     background: lightgray;
     margin: 5px;
+    align-content: center;
+}
+
+.pokeImage {
+    height: 100px;
 }
 
 .pokeStats{
-
+    font-size: 20px;
 }

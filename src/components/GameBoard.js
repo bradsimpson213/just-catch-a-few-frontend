@@ -10,15 +10,16 @@ class GameBoard extends React.Component {
     };
 
     render() {
-        return(
-        <div className={styles.gameBoard}>
-          <ChatWindow
-            messages={this.props.messages}
-            handleSendMessage={this.props.handleSendMessage}
-            handleLeave={this.props.handleLeave}
-          />
-          <PokeCard />
-        </div>
+        return (
+          <div className={styles.gameBoard}>
+            <ChatWindow
+              messages={this.props.messages}
+              handleSendMessage={this.props.handleSendMessage}
+              handleLeave={this.props.handleLeave}
+            />
+            <PokeCard />
+            <PokeCard />
+          </div>
         );
     };
 };
