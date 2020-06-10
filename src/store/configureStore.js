@@ -1,16 +1,18 @@
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
 import pokeReducer from "./pokemonStore";
+import authReducer from "./authorizationStore"
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// const reducer = combineReducers({
-//    pokeReducer,
-// });
+const reducer = combineReducers({
+   pokeReducer,
+   authReducer
+});
 
 const configureStore = (initialState) => {
   return createStore(
-    pokeReducer,
+    reducer,
     initialState,
     composeEnhancers(applyMiddleware(thunk))
   );

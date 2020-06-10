@@ -1,20 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import uniqid from 'uniqid'; 
+import { baseWSUrl } from './config'
 
 import Home from './components/Home';
 import GameBoard from './components/GameBoard';
 
-function App() {
+
+const App = (props) => {
   const [username, setUsername] = useState('');
   const [messages, setMessages] = useState([]);
   const webSocket = useRef(null);
-    
+  
   useEffect(() => {
      if (!username) {
       return;
     }
 
-    const ws = new WebSocket('ws://localhost:8000');
+    const ws = new WebSocket(`${baseWSUrl}`);
     ws.onopen = (e) => {
       console.log(`Connection open: ${e}`);
       setMessages([]);

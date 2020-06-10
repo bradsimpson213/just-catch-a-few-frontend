@@ -3,19 +3,19 @@ import { baseUrl } from '../config'
 
 const initialState = [];
 
-const LOAD = "pokedex/pokemon/LOAD";
+const LOAD = "pokemon/pokemon/LOAD";
 
 export const load = (pokemon) => ({ type: LOAD, pokemon });
 
 export const loadPokemon = () => async (dispatch) => {
-    for (let i = 1; i <= 4; i++) {
+    // for (let i = 1; i <= 4; i++) {
         const response = await fetch(`${baseUrl}/pokemon`);
         if (response.ok) {
             const pokemon = await response.json();
             console.log(pokemon)
             dispatch(load(pokemon));
         };
-    };
+    // };
 };
 
 export default function pokeReducer(state = initialState, action) {

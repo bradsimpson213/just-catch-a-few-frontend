@@ -4,10 +4,14 @@
   grid-template-columns: 1fr;
   grid-template-rows: minmax(0, 1fr);
   height: 400px;
-  width: 250px;
+  width: 300px;
   padding: 1em;
-  background-color: navy;
+  border: 3px solid white;
+  border-radius: 20px;
+  background-color: blue;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, .6);
 }
+
 
 .chat_window {
   display: grid;
@@ -18,7 +22,7 @@
 }
 
 .messages {
-  grid-column: 1 / span 3;
+  grid-column: 1 / span 2;
   color: blue;
   background-color:lightgray;
   border: solid 3px #000;

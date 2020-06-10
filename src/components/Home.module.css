@@ -5,7 +5,7 @@
     background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(37,48,175,1) 74%, rgba(0,212,255,1) 100%);
     display: grid;
     grid-template-columns: 1fr 2fr 4fr 2fr 1fr;
-    grid-template-rows: 75px 3500px 300px 250px 75px;
+    grid-template-rows: 75px 350px 300px 250px 75px;
 
 }
 
@@ -75,6 +75,11 @@
     margin: 20px;
     text-align: center;
     font-weight: bold;
+}
+
+.loginButton {
+    color: white;
+    background: green;
 }
 
 .footerHolder {

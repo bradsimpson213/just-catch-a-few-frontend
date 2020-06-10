@@ -1,5 +1,8 @@
 
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+
+import { login } from '../store/authorizationStore'
 import styles from './Home.module.css';
 
 const ValidationErrors = ({ errors }) => {
@@ -17,7 +20,7 @@ const ValidationErrors = ({ errors }) => {
     );
 };
 
-const Home = ({ updateUsername }) => {
+const Home = ({ updateUsername }, props) => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
@@ -31,20 +34,21 @@ const Home = ({ updateUsername }) => {
     };
 
     const onSubmit = (e) => {
-        e.preventDefault();
+      e.preventDefault();
 
-        const errorsToSet = [];
+      const errorsToSet = [];
 
-        if (!userName) {
-            errorsToSet.push('Please provide a username.');
-        }
-
-        if (errorsToSet.length > 0) {
-            setErrors(errorsToSet);
-            return;
-        }
-
-        updateUsername(userName);
+      if (!userName) errorsToSet.push('Please provide a username.');
+      if (!password) errorsToSet.push('Please provide a password.');
+      
+      if (errorsToSet.length > 0) {
+        setErrors(errorsToSet);
+        return;
+      }
+      
+      login(userName, password);
+      updateUsername(userName);
+        
     };
 
     return (
@@ -86,13 +90,23 @@ const Home = ({ updateUsername }) => {
               <input type="text" value={password}
                 onChange={changePassword} placeholder="Password..."/>
             </div>
-            <button>Login</button>
+            <button className={styles.loginButton}>Login</button>
           </form>
-          <a>Not a user? Click here to creat account!</a>
+          <button>Create Account</button>
         </div>
         <div className={styles.footerHolder}></div>
       </div>
     );
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return { token: state.token };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: () => dispatch(login()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
