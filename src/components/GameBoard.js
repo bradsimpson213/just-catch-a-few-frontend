@@ -8,12 +8,12 @@ import ChatWindow from './ChatWindow';
 import PokeCard from './PokeCard';
 
 class GameBoard extends React.Component {
-    // constructor(props) {
-    //     super(props)
-    // };
+    constructor(props) {
+        super(props)
+    };
 
-    componentDidMount() {
-        this.props.loadPokemon();
+    async componentDidMount() {
+        await this.props.loadPokemon();
     }
 
     componentDidUpdate() {
@@ -26,15 +26,20 @@ class GameBoard extends React.Component {
         return (
           <main className={styles.gameBoard}>
             <nav className={styles.navbar}>
-              <button className={styles.navButton}>New Game</button>
-              <button className={styles.navButton}>Quit Game</button>
+              <button className={styles.newGameButton}>New Game</button>
+              <button className={styles.quitButton}>Quit Game</button>
+              <img
+                className={styles.navLogo}
+                src="https://fontmeme.com/permalink/200609/4653f7098e77b540fb3515a454473098.png"
+                alt="game-logo"
+              />
+              <button className={styles.chatButton}>Open Chat</button>
+              {/* <ChatWindow
+                  messages={this.props.messages}
+                  handleSendMessage={this.props.handleSendMessage}
+                  handleLeave={this.props.handleLeave}
+                /> */}
             </nav>
-            {/* <ChatWindow
-              messages={this.props.messages}
-              handleSendMessage={this.props.handleSendMessage}
-              handleLeave={this.props.handleLeave}
-            /> */}
-
             <div className={styles.activeCards}>
               <div className={styles.playerActive}>
                 <span>{this.props.messages.username}</span>
@@ -42,8 +47,13 @@ class GameBoard extends React.Component {
               <div className={styles.opponentActive}></div>
             </div>
             <div className={styles.playerHand}>
-              <div className={styles.handHolder}></div>
-              {/* {pokemonInfo.map((pokemon) => <PokeCard key={pokemon.id} props={pokemon} />)};*/}
+              <div className={styles.handHolder}>
+                <PokeCard />
+                <PokeCard />
+                <PokeCard />
+                <PokeCard />
+              </div>
+              {/* {pokemonInfo.map((pokemon) => <PokeCard key={pokemon.id} props={pokemon} />)}; */}
             </div>
             <footer></footer>
           </main>

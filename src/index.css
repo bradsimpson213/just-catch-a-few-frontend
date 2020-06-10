@@ -9,8 +9,8 @@ body {
   box-sizing: border-box;
 }
 
-body, button, input {
-  font-family: Arial, Helvetica, sans-serif;
+body, button, input, label {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 button, input {
