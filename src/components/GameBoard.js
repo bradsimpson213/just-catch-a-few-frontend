@@ -1,8 +1,5 @@
 import React from 'react';
 import styles from './GameBoard.module.css';
-import { connect } from 'react-redux';
-
-import { loadPokemon } from '../store/pokemonStore';
 import ChatWindow from './ChatWindow';
 import PokeCard from './PokeCard';
 
@@ -11,15 +8,12 @@ class GameBoard extends React.Component {
         super(props)
     };
 
-    componentDidMount() {
-      // this.props.loadPokemon()
-    }
     handleChatHide = (e) => {
     };
   
 
     render() {
-        const cards = [1,2,3,4];
+        const cards = [0,1,2,3];
         return (
           <main className={styles.gameBoard}>
             <nav className={styles.navbar}>
@@ -35,9 +29,11 @@ class GameBoard extends React.Component {
             </nav>
             <div className={styles.activeCards}>
               <div className={styles.playerActive}>
-                <span>{this.props.messages.username}</span>
+                <div className={styles.playerActive__drop}></div>
               </div>
-              <div className={styles.opponentActive}></div>
+              <div className={styles.opponentActive}>
+                <div className={styles.opponentActive__drop}></div>
+              </div>
             </div>
             <div className={styles.playerHand}>
               <div className={styles.handHolder}>
@@ -55,15 +51,5 @@ class GameBoard extends React.Component {
         );
     };
 };
-
-// const mapStateToProps = (state) => {
-//   return { pokemon: state.token };
-// };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     loadPokemon: () => dispatch(loadPokemon()),
-//   };
-// };
 
 export default GameBoard;

@@ -29,14 +29,14 @@
 
 ## FRONTEND
 - React/Redux
-- PokeAPI for Pokemon data
-- Pokemon.com for Pokemon images (pass URL to front end after creating with Pokemon data)
+- Pokemon.com for Pokemon images (pass URL to front end after creating with Pokemon data on back end)
 
 
 ## TECHNOLOGY USED
 ### FONT END
 - UNIQID for unique chat message ID's  (https://www.npmjs.com/package/uniqid)
 ### BACK END
+- PokeAPI for Pokemon data (https://pokeapi.co/)
 
 
 ## CREDITS 

@@ -1,8 +1,9 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { login } from '../store/authorizationStore'
+import { loadPokemon } from '../store/pokemonStore'
 import styles from './Home.module.css';
 
 const ValidationErrors = ({ errors }) => {
@@ -20,11 +21,15 @@ const ValidationErrors = ({ errors }) => {
     );
 };
 
-const Home = ({ updateUsername }, props) => {
+const Home = (props) => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
+    useEffect( () => {
+      // console.log('hopefully loading pokemon...')
+      props.loadPokemon()}, []);
+    
     const changeUser = (e) => {
         setUserName(e.target.value);
     };
@@ -47,7 +52,7 @@ const Home = ({ updateUsername }, props) => {
       }
       
       login(userName, password);
-      updateUsername(userName);
+      props.updateUsername(userName);
         
     };
 
@@ -106,6 +111,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     login: () => dispatch(login()),
+    loadPokemon: () => dispatch(loadPokemon()),
   };
 };
 

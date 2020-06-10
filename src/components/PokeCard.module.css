@@ -1,31 +1,47 @@
 .cardBody {
     background: plum;
     height: 300px;
-    width: 250px;
-    border: solid 5px yellow;
+    width: 225px;
+    border: solid 5px gold;
     border-radius: 15px;
     padding: 5px;
 }
 
 
 .pokeHeader{
-    height: 20px;
-    font-size: 15px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-weight: bold;
+}
+
+.pokeName {
+    align-self: center;
+    font-size: 20px;
+}
+
+.pokeHp {
+    align-self: center;
+    font-size: 24px;
 }
 
 .imageWrapper{
     border: 1px solid lightgray;
-    height: 100px;
-    border-radius: 10px;
-    background: lightgray;
-    margin: 5px;
+    height: 160px;
+    display:flex;
     align-content: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: lightskyblue;
+    border: 1px solid gray;
+    margin: 5px;
+   
 }
 
 .pokeImage {
-    height: 100px;
-}
+    height: 150px;
+  }
 
 .pokeStats{
     font-size: 20px;

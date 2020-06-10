@@ -95,9 +95,7 @@ const App = (props) => {
     <>
       {username ? (
         <GameBoard messages={messages} handleSendMessage={handleSendMessage}
-        handleLeave={handleLeave} />) 
-      : ( <Home updateUsername={updateUsername} />
-        )};
+        handleLeave={handleLeave} />) : ( <Home updateUsername={updateUsername} />)};
     </>
   );
 }
