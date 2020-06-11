@@ -1,10 +1,11 @@
 .cardBody {
-    background: plum;
     height: 300px;
     width: 225px;
+    background: plum;
     border: solid 5px gold;
     border-radius: 15px;
     padding: 5px;
+    box-shadow: -10px 10px 5px rgba(0, 0, 0, .6);
 }
 
 
@@ -18,31 +19,47 @@
 
 .pokeName {
     align-self: center;
-    font-size: 20px;
+    font-size: 22px;
+    color: white;
+    text-shadow: -2px 2px 0 #000,
+				  2px 2px 0 #000,
+				 2px -2px 0 #000,
+				-2px -2px 0 #000;
 }
 
 .pokeHp {
     align-self: center;
     font-size: 24px;
+    color: white;
+    text-shadow: -2px 2px 0 #000,
+				  2px 2px 0 #000,
+				 2px -2px 0 #000,
+				-2px -2px 0 #000;
 }
 
 .imageWrapper{
-    border: 1px solid lightgray;
+    border: 1px solid slategrey;
     height: 160px;
     display:flex;
     align-content: center;
     justify-content: center;
     border-radius: 10px;
-    background: lightskyblue;
+    background: navajowhite;
     border: 1px solid gray;
     margin: 5px;
    
 }
 
 .pokeImage {
-    height: 150px;
+    height: 175px;
   }
 
-.pokeStats{
+.pokeMoves{
     font-size: 20px;
+    color: lightgray;
+    text-shadow: -1px 1px 0 #000,
+				  1px 1px 0 #000,
+				 1px -1px 0 #000,
+				-1px -1px 0 #000;
 }
+

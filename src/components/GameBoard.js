@@ -29,9 +29,11 @@ class GameBoard extends React.Component {
             </nav>
             <div className={styles.activeCards}>
               <div className={styles.playerActive}>
+                <div className={styles.playerInfo}></div>
                 <div className={styles.playerActive__drop}></div>
               </div>
               <div className={styles.opponentActive}>
+                <div className={styles.opponentInfo}></div>
                 <div className={styles.opponentActive__drop}></div>
               </div>
             </div>

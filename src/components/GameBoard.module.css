@@ -74,9 +74,19 @@
     background: blue;
     box-shadow: -10px 10px 5px rgba(0, 0, 0, .6);
     display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: flex-end;
+    flex-direction: row;  
+}
+
+.playerInfo {
+    height: 200px;
+    width: 200px;
+    border: 2px solid white;
+    border-radius: 15px;
+    background: slategray;
+    box-shadow: -10px 10px 5px rgba(0, 0, 0, .6);
+    justify-self: flex-start;
+    align-self: center;
+    margin-left: 50px;;
 }
 
 .playerActive__drop {
@@ -85,7 +95,9 @@
     border: 2px solid white;
     border-radius: 15px;
     background: blue;
-    margin: 25px;
+    box-shadow: -10px 10px 5px rgba(0, 0, 0, .6);
+    margin-left: 50px;
+    align-self: center;
 }
 
 .opponentActive{
@@ -96,18 +108,34 @@
     background: red;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, .6);
     display: flex;
-    flex-direction: row;
-    align-content: center;
+    flex-direction: row row-reverse;
     justify-content: flex-start;
+}
+
+.opponentInfo  {
+    height: 200px;
+    width: 200px;
+    order: 2;
+    border: 2px solid white;
+    border-radius: 15px;
+    background: slategray;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, .6);
+    justify-self: flex-end;
+    align-self: center;
+    margin-left: 50px;
+    
 }
 
 .opponentActive__drop {
     height: 300px;
     width: 225px;
+    order: 1;
     border: 2px solid white;
     border-radius: 15px;
     background: red;
-    margin: 25px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, .6);
+    align-self: center;
+    margin-left: 60px;
 }
 
 .playerHand {
