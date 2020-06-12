@@ -12,12 +12,15 @@ class PokeCard extends React.Component {
   render() {
     const parsedIndex = parseInt(this.props.card.id.slice(5));
     const pokeCard = this.props.pokemon[parsedIndex].pokemon;
+    const damage1 = Math.floor(pokeCard.hp/ 3)
+    const damage2 = Math.floor(pokeCard.hp / 2);
     return (
       <Draggable draggableId={this.props.card.id} index={this.props.index}>
-        { (provided) => (
-          <div ref={provided.innerRef}
+        {(provided) => (
+          <div
+            ref={provided.innerRef}
             className={`${styles.cardBody} ${styles[pokeCard.type]}`}
-            {...provided.draggableProps} 
+            {...provided.draggableProps}
             {...provided.dragHandleProps}
           >
             <header className={styles.pokeHeader}>
@@ -32,10 +35,16 @@ class PokeCard extends React.Component {
                 alt="pokemon-card"
               />
             </div>
+            <div className={styles.pokeType}>{`${pokeCard.type} Type`}</div>
             <div className={styles.pokeMoves}>
-              <div>{pokeCard.move1}</div>
-              <div>{pokeCard.move2}</div>
-              <div>{pokeCard.type}</div>
+              <div className={styles.moveHolder}>
+                <span className={styles.moveName}>{pokeCard.move1}</span>
+                <span className={styles.moveDamage}>{damage1}</span>
+              </div>
+              <div className={styles.moveHolder}>
+                <span className={styles.moveName}>{pokeCard.move2}</span>
+                <span className={styles.moveDamage}>{damage2}</span>
+              </div>
             </div>
           </div>
         )}

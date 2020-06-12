@@ -51,87 +51,111 @@
 
 .pokeImage {
     height: 175px;
-  }
+}
 
-.pokeMoves{
-    font-size: 20px;
-    color: lightgray;
+.pokeType {
+    text-align: center;
+    margin: 3px;
+    color: white;
     text-shadow: -1px 1px 0 #000,
 				  1px 1px 0 #000,
 				 1px -1px 0 #000,
 				-1px -1px 0 #000;
 }
 
+.pokeMoves{
+    font-size: 20px;
+    color: white;
+    text-shadow: -1px 1px 0 #000,
+				  1px 1px 0 #000,
+				 1px -1px 0 #000,
+				-1px -1px 0 #000;
+}
+
+.moveHolder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.moveName{
+    text-align: left;
+}
+
+.moveDamage{
+    text-align: right;
+}
+
 /* STYLES FOR BACKGROUNDS */
-.fire {
+.Fire {
     background: orangered;
 }
 
-.steel {
+.Steel {
     background: silver;
 }
 
-.psychic {
+.Psychic {
     background: violet;
 }
       
-.water {
+.Water {
     background: deepskyblue;
 }
 
-.ice {
+.Ice {
     background: aqua;
 }
      
-.electric {
+.Electric {
     background: yellow;
 }     
 
-.grass {
+.Grass {
     background: yellowgreen;
 }
 
-.rock {
+.Rock {
     background: sienna;
 }
 
-.fighting {
+.Fighting {
     background: darkorange;
 }
   
-.ground {
+.Ground {
     background: peru;
 }
 
-.dragon {
+.Dragon {
     background: goldenrod;
 }
 
-.poison {
+.Poison {
     background: darkorchid;
 }
 
-.bug {
+.Bug {
     background: lawngreen;
 }
 
-.ghost {
+.Ghost {
     background: plum;
 }
 
-.fairy {
+.Fairy {
     background: hotpink;
 }
 
-.dark {
+.Dark {
     background: black;
 }
 
-.normal {
+.Normal {
     background: gray;
 }
 
-.flying {
+.Flying {
     background: lightblue;
 }
        

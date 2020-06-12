@@ -49,8 +49,8 @@
 .pokeball {
     grid-column-start: 2;
     grid-column-end: 3;
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     align-self: center;
     justify-self: center;
     

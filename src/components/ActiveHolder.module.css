@@ -1,6 +1,6 @@
 .activeHolder {
-    height: 300px;
-    width: 225px;
+    height: 300px; 
+    width: 225px;  
     border: 2px solid white;
     border-radius: 15px;
     background: blue;
@@ -8,5 +8,7 @@
     margin-left: 50px;
     margin-top: 23px;
     align-self: center;
+    align-content: center;
+    justify-content: center;
 
 }

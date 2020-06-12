@@ -28,25 +28,57 @@ class GameBoard extends React.Component {
           destination.index === source.index
     ) { return};
 
-    const cardHolder = this.state.cardHolders[source.droppableId];
-    const newCardIds = Array.from(cardHolder.cardIds);
-    newCardIds.splice(source.index, 1);
-    newCardIds.splice(destination.index, 0, draggableId);
+      console.log()
+    const cardHolderStart = this.state.cardHolders[source.droppableId];
+    const cardHolderFinish = this.state.cardHolders[destination.droppableId];
 
-    const newCardHolder = {
-      ...cardHolder,
-      cardIds: newCardIds,
-    };
-    
-    const newState = {
-      ...this.state,
-      cardHolders: {
-        ...this.state.cardHolders,
-        [newCardHolder.id]: newCardHolder,
-      },
-    };
-  this.setState(newState);
-  };
+    if ( cardHolderStart === cardHolderFinish) {
+      const newCardIds = Array.from(cardHolderStart.cardIds);
+      newCardIds.splice(source.index, 1);
+      newCardIds.splice(destination.index, 0, draggableId);
+
+      const newCardHolder = {
+        ...cardHolderStart,
+        cardIds: newCardIds,
+      };
+
+      const newState = {
+         ...this.state,
+          cardHolders: {
+          ...this.state.cardHolders,
+          [newCardHolder.id]: newCardHolder,
+          },
+      };
+      this.setState(newState);
+      return;
+      };
+
+      // MOVING FROM ONE HOLDER TO ANOTHGER
+      const startCardIds = Array.from(cardHolderStart.cardIds);
+      startCardIds.splice(source.index, 1);
+      const startCardHolder = {
+        ...cardHolderStart,
+        cardIds: startCardIds,
+      };
+
+      const finishCardIds = Array.from(cardHolderFinish.cardIds);
+      finishCardIds.splice(destination.index, 0, draggableId);
+      const finishCardHolder = {
+        ...cardHolderFinish,
+        cardIds: finishCardIds
+      }
+
+      const newState = {
+         ...this.state,
+          cardHolders: {
+          ...this.state.cardHolders,
+          [startCardHolder.id]: startCardHolder,
+          [finishCardHolder.id]: finishCardHolder,
+          },
+      };
+      this.setState(newState);
+   };
+
 
 
   render() {
@@ -57,8 +89,8 @@ class GameBoard extends React.Component {
     const cards2 = holder2.cardIds.map((cardId) => this.state.cards[cardId]);
     
     console.log("modified");
-    console.log(holder1, holder2);
-    console.log(cards1, cards2);
+    console.log(cards1);
+    console.log(cards2);
              
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>

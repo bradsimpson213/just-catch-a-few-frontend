@@ -17,7 +17,7 @@ const initialData = {
             cardIds: [],
         }
     },
-    handOrder: ['holder-1',  ],
+    handOrder: ['holder-1', 'holder-2' ],
 };
 
 export default initialData;

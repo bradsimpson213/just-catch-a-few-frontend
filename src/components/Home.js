@@ -92,7 +92,7 @@ const Home = (props) => {
             </div>
             <div>
               <label>Password:</label>
-              <input type="text" value={password}
+              <input type="password" value={password}
                 onChange={changePassword} placeholder="Password..."/>
             </div>
             <button className={styles.loginButton}>Login</button>
