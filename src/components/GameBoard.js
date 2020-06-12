@@ -81,7 +81,8 @@ class GameBoard extends React.Component {
 
 
   render() {
-            
+    const userInfo= JSON.parse(window.localStorage.getItem('USER_INFO'));  
+    console.log(userInfo);   
     const holder1 = this.state.cardHolders["holder-1"];
     const cards1 = holder1.cardIds.map((cardId) => this.state.cards[cardId]);
     const holder2 = this.state.cardHolders["holder-2"];
@@ -102,7 +103,7 @@ class GameBoard extends React.Component {
               className={styles.chatButton}
               onClick={this.handleChatHide()}
             >
-              Open Chat
+              Game Instructions
             </button>
             <div className={styles.chatBox}></div>
           </nav>
