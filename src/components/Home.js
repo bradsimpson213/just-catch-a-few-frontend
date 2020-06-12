@@ -8,8 +8,7 @@ import styles from './Home.module.css';
 
 const ValidationErrors = ({ errors }) => {
     if (errors === null || errors.length === 0) {
-        return null;
-    }
+        return null};
 
     return (
         <div>
@@ -51,9 +50,8 @@ const Home = (props) => {
         return;
       }
       
-      login(userName, password);
+      props.login(userName, password);
       props.updateUsername(userName);
-        
     };
 
     return (
@@ -110,7 +108,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    login: () => dispatch(login()),
+    login: (userName, password) => dispatch(login(userName, password)),
     loadPokemon: () => dispatch(loadPokemon()),
   };
 };

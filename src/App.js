@@ -10,7 +10,7 @@ const App = (props) => {
   const [username, setUsername] = useState('');
   const [messages, setMessages] = useState([]);
   const webSocket = useRef(null);
-  
+
   useEffect(() => {
      if (!username) {
       return;

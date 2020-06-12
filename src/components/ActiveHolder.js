@@ -12,14 +12,14 @@ class ActiveHolder extends React.Component {
        return (
           <div>
             <Droppable
-              droppableId={this.props.holder.id}
-            >
+              droppableId={this.props.holder.id} isDropDisabled={this.props.cards.length > 0} >
               {(provided) => (
                 <div
                   ref={provided.innerRef}
                   className={styles.activeHolder}
                   {...provided.droppableProps}
                 >
+                  {console.log(provided)}
                   {this.props.cards.map((card, index) => (
                     <PokeCard key={card.id} card={card} index={index} />
                   ))}

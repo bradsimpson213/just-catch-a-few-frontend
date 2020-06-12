@@ -1,8 +1,9 @@
 import { baseUrl } from '../config';
 
-const TOKEN_KEY = 'pokemon/authentication/token';
+const TOKEN_KEY = 'pokemon/authentication/TOKEN_KEY';
 const SET_TOKEN = 'pokemon/authentication/SET_TOKEN';
 const REMOVE_TOKEN = 'pokemon/authentication/REMOVE_TOKEN';
+const USER_INFO = "pokemon/authentication/USER_INFO";
 
 export const removeToken = token => ({ type: REMOVE_TOKEN });
 export const setToken = token => ({ type: SET_TOKEN, token });
@@ -15,15 +16,17 @@ export const loadToken = () => async dispatch => {
 };
 
 export const login = (userName, password) => async dispatch => {
+  
     const response = await fetch(`${baseUrl}/users/token`, {
-        method: 'put',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userName, password }),
     });
 
     if (response.ok) {
-        const { token } = await response.json();
+        const { token, user } = await response.json();
         window.localStorage.setItem(TOKEN_KEY, token);
+        window.localStorage.setItem(USER_INFO, user);
         dispatch(setToken(token));
     }
 };

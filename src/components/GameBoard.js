@@ -21,14 +21,13 @@ class GameBoard extends React.Component {
 
   onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
-
+  
     if(!destination) {return};
 
     if ( destination.droppableId === source.droppableId &&
           destination.index === source.index
-    ) { return};
-
-      console.log()
+    ) return;
+      
     const cardHolderStart = this.state.cardHolders[source.droppableId];
     const cardHolderFinish = this.state.cardHolders[destination.droppableId];
 
@@ -87,10 +86,6 @@ class GameBoard extends React.Component {
     const cards1 = holder1.cardIds.map((cardId) => this.state.cards[cardId]);
     const holder2 = this.state.cardHolders["holder-2"];
     const cards2 = holder2.cardIds.map((cardId) => this.state.cards[cardId]);
-    
-    console.log("modified");
-    console.log(cards1);
-    console.log(cards2);
              
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
