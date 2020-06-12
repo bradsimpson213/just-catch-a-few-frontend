@@ -10,8 +10,8 @@ class CardHolder extends React.Component {
     };
 
     render() {
-        // console.log("inside card holder");
-        // console.log(this.props);
+        console.log("inside card holder");
+        console.log(this.props);
         return (
           <div>
             <Droppable

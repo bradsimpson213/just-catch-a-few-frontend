@@ -10,9 +10,9 @@ class PokeCard extends React.Component {
   };   
 
   render() {
-    const cardNumber = this.props.index;
-    const pokeCard = this.props.pokemon[cardNumber].pokemon;
-    // console.log(this.props);
+    const parsedIndex = parseInt(this.props.card.id.slice(5));
+    const pokeCard = this.props.pokemon[parsedIndex].pokemon;
+    console.log(this.props);
     return (
       <Draggable draggableId={this.props.card.id} index={this.props.index}>
         { (provided) => (

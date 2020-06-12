@@ -21,19 +21,33 @@ class GameBoard extends React.Component {
   onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
 
-    if(!destination) {
-      return;
-    };
+    if(!destination) {return};
 
     if ( destination.droppableId === source.droppableId &&
           destination.index === source.index
-    ) { return;
-    };
+    ) { return};
 
     const cardHolder = this.state.cardHolders[source.droppableId];
     const newCardIds = Array.from(cardHolder.cardIds);
+    newCardIds.splice(source.index, 1);
+    newCardIds.splice(destination.index, 0, draggableId);
 
+    const newCardHolder = {
+      ...cardHolder,
+      cardIds: newCardIds,
+    };
+    
+    const newState = {
+      ...this.state,
+      cardHolders: {
+        ...this.state.cardHolders,
+        [newCardHolder.id]: newCardHolder,
+      },
+    };
+    console.log(newState);
+    this.setState(newState);
   };
+
 
   render() {
     const cards = [0, 1, 2, 3];
@@ -68,8 +82,8 @@ class GameBoard extends React.Component {
             </div>
           </div>
           <div className={styles.playerHand}>
-            {this.state.handOrder.map((columnId) => {
-              const holder = this.state.cardHolders[columnId];
+            {this.state.handOrder.map((handId) => {
+              const holder = this.state.cardHolders[handId];
               const cards = holder.cardIds.map(
                 (cardId) => this.state.cards[cardId]
               );
