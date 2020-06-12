@@ -1,25 +1,23 @@
 import React from 'react';
-import styles from './CardHolder.module.css';
-import PokeCard from './PokeCard'
-import { Droppable } from 'react-beautiful-dnd';
+import styles from './ActiveHolder.module.css'
+import PokeCard from "./PokeCard";
+import { Droppable } from "react-beautiful-dnd";
 
-
-class CardHolder extends React.Component {
-    constructor(props) {
-        super(props)
+class ActiveHolder extends React.Component {
+    constructor(props){
+    super(props)
     };
 
     render() {
-        return (
+       return (
           <div>
             <Droppable
               droppableId={this.props.holder.id}
-              direction="horizontal"
             >
               {(provided) => (
                 <div
                   ref={provided.innerRef}
-                  className={styles.cardHolder}
+                  className={styles.activeHolder}
                   {...provided.droppableProps}
                 >
                   {this.props.cards.map((card, index) => (
@@ -32,5 +30,6 @@ class CardHolder extends React.Component {
           </div>
         );
     };
-}
-export default CardHolder;
+};
+
+export default ActiveHolder;

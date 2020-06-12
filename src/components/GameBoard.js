@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './GameBoard.module.css';
 import ChatWindow from './ChatWindow';
 import CardHolder from './CardHolder';
+import ActiveHolder from './ActiveHolder';
 
 import { DragDropContext } from 'react-beautiful-dnd';
 
@@ -44,14 +45,21 @@ class GameBoard extends React.Component {
         [newCardHolder.id]: newCardHolder,
       },
     };
-    console.log(newState);
-    this.setState(newState);
+  this.setState(newState);
   };
 
 
   render() {
-    const cards = [0, 1, 2, 3];
-    // console.log(this.state);
+            
+    const holder1 = this.state.cardHolders["holder-1"];
+    const cards1 = holder1.cardIds.map((cardId) => this.state.cards[cardId]);
+    const holder2 = this.state.cardHolders["holder-2"];
+    const cards2 = holder2.cardIds.map((cardId) => this.state.cards[cardId]);
+    
+    console.log("modified");
+    console.log(holder1, holder2);
+    console.log(cards1, cards2);
+             
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <main className={styles.gameBoard}>
@@ -74,7 +82,7 @@ class GameBoard extends React.Component {
           <div className={styles.activeCards}>
             <div className={styles.playerActive}>
               <div className={styles.playerInfo}></div>
-              <div className={styles.playerActive__drop}></div>
+              <ActiveHolder key={holder2.id} holder={holder2} cards={cards2} />
             </div>
             <div className={styles.opponentActive}>
               <div className={styles.opponentInfo}></div>
@@ -82,19 +90,12 @@ class GameBoard extends React.Component {
             </div>
           </div>
           <div className={styles.playerHand}>
-            {this.state.handOrder.map((handId) => {
+            {/* {this.state.handOrder.map((handId) => {
               const holder = this.state.cardHolders[handId];
               const cards = holder.cardIds.map(
                 (cardId) => this.state.cards[cardId]
-              );
-              return (
-                <CardHolder
-                  key={holder.id}
-                  holder={holder}
-                  cards={cards}
-                />
-              );
-            })}
+              ); */}
+            <CardHolder key={holder1.id} holder={holder1} cards={cards1} />
             <ChatWindow
               messages={this.props.messages}
               handleSendMessage={this.props.handleSendMessage}

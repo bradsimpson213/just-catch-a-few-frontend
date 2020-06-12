@@ -12,7 +12,6 @@ class PokeCard extends React.Component {
   render() {
     const parsedIndex = parseInt(this.props.card.id.slice(5));
     const pokeCard = this.props.pokemon[parsedIndex].pokemon;
-    console.log(this.props);
     return (
       <Draggable draggableId={this.props.card.id} index={this.props.index}>
         { (provided) => (
@@ -48,11 +47,5 @@ class PokeCard extends React.Component {
 const mapStateToProps = (state) => {
   return { pokemon: state.pokeReducer };
 };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     loadPokemon: () => dispatch(loadPokemon()),
-//   };
-// };
 
 export default connect(mapStateToProps)(PokeCard);
