@@ -21,8 +21,25 @@
   row-gap: 1em;
 }
 
+.chatBox {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  height: 40px;
+  background-color:lightgray;
+  overflow: visible;
+}
+
+.sendButton{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  height: 40px;
+}
+
 .messages {
-  grid-column: 1 / span 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
   color: blue;
   background-color:lightgray;
   border: solid 3px #000;

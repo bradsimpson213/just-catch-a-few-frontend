@@ -1,7 +1,6 @@
 .cardBody {
     height: 300px;
     width: 225px;
-    background: plum;
     border: solid 5px gold;
     border-radius: 15px;
     padding: 5px;
@@ -63,3 +62,72 @@
 				-1px -1px 0 #000;
 }
 
+/* STYLES FOR BACKGROUNDS */
+.fire {
+    background: orangered;
+}
+
+.steel {
+    background: silver;
+}
+
+.psychic {
+    background: violet;
+}
+      
+.water {
+    background: deepskyblue;
+}
+
+.ice {
+    background: aqua;
+}
+     
+.electric {
+    background: yellow;
+}     
+
+.grass {
+    background: yellowgreen;
+}
+
+.rock {
+    background: sienna;
+}
+
+.fighting {
+    background: darkorange;
+}
+  
+.ground {
+    background: peru;
+}
+
+.dragon {
+    background: goldenrod;
+}
+
+.poison {
+    background: darkorchid;
+}
+
+.bug {
+    background: lawngreen;
+}
+
+.ghost {
+    background: plum;
+}
+
+.fairy {
+    background: hotpink;
+}
+
+.dark {
+    background: black;
+}
+
+.normal {
+    background: gray;
+}
+       

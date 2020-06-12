@@ -25,8 +25,8 @@ export default function pokeReducer(state = initialState, action) {
         const newState = [...state]
         if(newState.length < 4) {
             newState.push({ pokemon: action.pokemon });
-            console.log("inside of pokeReducer")
-            console.log(newState);
+            // console.log("inside of pokeReducer")
+            // console.log(newState);
             return newState;
         } else return newState;
     } else return state;

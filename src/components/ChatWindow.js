@@ -10,7 +10,8 @@ const ChatWindow = ({ messages, handleSendMessage, handleLeave }) => {
         setMessage(e.target.value);
     };
 
-    const handleSendOnClick = () => {
+    const handleSendOnClick = (e) => {
+        e.preventDefault()
         handleSendMessage(message);
         setMessage('');
     };
@@ -18,20 +19,34 @@ const ChatWindow = ({ messages, handleSendMessage, handleLeave }) => {
     const handleLeaveOnClick = () => {
         handleLeave();
     };
-
+    // console.log("from messages");
+    // console.log(messages);
+    // if(message.username = )
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.chat_window}>
-                <input type='text' value={message} onChange={handleOnChange} />
-                <button type='button' onClick={handleSendOnClick}>Send</button>
-                {/* <button type='button' onClick={handleLeaveOnClick}>Leave</button> */}
-                <div className={styles.messages}>
-                    {messages.map(m => (
-                        <p key={m.id}><strong>{m.username}:</strong> {m.message}</p>
-                    ))}
-                </div>
-            </div>
+      <div className={styles.wrapper}>
+        <div className={styles.chat_window}>
+            <form onSubmit={handleSendOnClick}>
+            <input
+                className={styles.chatBox}
+                type="text"
+                value={message}
+                onChange={handleOnChange}/>
+            </form>
+            <button
+                className={styles.sendButton}
+                type="button"
+                onClick={handleSendOnClick}
+            >Send</button>
+          {/* <button type='button' onClick={handleLeaveOnClick}>Leave</button> */}
+          <div className={styles.messages}>
+            {messages.map((m) => (
+              <p key={m.id}>
+                <strong>{m.username}:</strong> {m.message}
+              </p>
+            ))}
+          </div>
         </div>
+      </div>
     );
 };
 

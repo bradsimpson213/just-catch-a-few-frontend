@@ -16,28 +16,23 @@
 - Friends List
 - Ability to play a computer
 
-## DB
+## DB SETUP
 - Single table for user info
-- username(unique), password(bcrypt), email(unique), wins, losses, avatar
+- username(unique), password(bcrypt), email(unique), wins, losses, avatars
 
-## BACKEND
+## TECHNOLOGY/RESOURCES USED
+### FONTEND
+- React/Redux
+- Pokemon.com for Pokemon images (pass URL to front end after creating with Pokemon data on back end)
+- UNIQID for unique chat message ID's  (https://www.npmjs.com/package/uniqid)
+- React-beautifuk-dnd for drag n' drop cards (https://github.com/atlassian/react-beautiful-dnd/blob/master/README.md#documentation-) 
+- Pokemon Home Page Font for logos (https://fontmeme.com/pokemon-font/)
+
+### BACKEND
+- PokeAPI for Pokemon data (https://pokeapi.co/)
 - Express server
 - User DB interface
 - User Auth/Verification
 - Websockets
-- PokeAPI for Pokemon data/images
-
-## FRONTEND
-- React/Redux
-- Pokemon.com for Pokemon images (pass URL to front end after creating with Pokemon data on back end)
-
-
-## TECHNOLOGY USED
-### FONT END
-- UNIQID for unique chat message ID's  (https://www.npmjs.com/package/uniqid)
-### BACK END
-- PokeAPI for Pokemon data (https://pokeapi.co/)
-
 
 ## CREDITS 
-- Pokemon Home Page Font (https://fontmeme.com/pokemon-font/)
