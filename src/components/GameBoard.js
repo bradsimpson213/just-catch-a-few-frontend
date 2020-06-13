@@ -100,7 +100,7 @@ class GameBoard extends React.Component {
               alt="game-logo"
             />
             <button
-              className={styles.chatButton}
+              className={styles.infoButton}
               onClick={this.handleChatHide()}
             >
               Game Instructions
@@ -109,7 +109,16 @@ class GameBoard extends React.Component {
           </nav>
           <div className={styles.activeCards}>
             <div className={styles.playerActive}>
-              <div className={styles.playerInfo}></div>
+              <div className={styles.playerInfo}>
+                <div>{userInfo.userName}</div>
+                <img className={styles.avatar} src="/static/media/myavatar_1.50284975.png" />
+
+                {/* <div className={styles.avatar1}></div> */}
+                <div>
+                  <span> Wins: {userInfo.wins}</span>
+                  <span> Losses: {userInfo.losses}</span>
+                </div>
+              </div>
               <ActiveHolder key={holder2.id} holder={holder2} cards={cards2} />
             </div>
             <div className={styles.opponentActive}>
@@ -118,11 +127,6 @@ class GameBoard extends React.Component {
             </div>
           </div>
           <div className={styles.playerHand}>
-            {/* {this.state.handOrder.map((handId) => {
-              const holder = this.state.cardHolders[handId];
-              const cards = holder.cardIds.map(
-                (cardId) => this.state.cards[cardId]
-              ); */}
             <CardHolder key={holder1.id} holder={holder1} cards={cards1} />
             <ChatWindow
               messages={this.props.messages}
