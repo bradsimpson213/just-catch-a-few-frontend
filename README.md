@@ -1,6 +1,8 @@
 # Gotta Catch A Few - Pokemon TCG Clone - By Brad Simpson
 - Pokemon expert knowledge credit to Andy Simpson
 
+- Site located at https://justcatchafew.herokuapp.com/
+
 ## MVP
 - Random Decks of Pokemon Cards (4-5 cards) generated for each player
 - Cards background color will change according to Pokemon Type
@@ -34,11 +36,12 @@
 - Express server
 - User DB interface
 - User Auth/Verification
-- Websockets
+- Websockets - Chat and eventual gameplay
+
 
 ## CHALENGES FACED
 
-### DATA FOR POKEMON CARDS
+### MANIPULATING DATA FOR POKEMON CARDS
 
 - Data from the PokeAPI had to be filtered, adding first letter caps, padding the pokemonID's to a 3 digit number, and using a seperate resource for the images, and the ones provided by the API were small and resolution suffered if enlarged.  Used random number generators for picking which Pokemon, as well as 2 random moves from each (most have 40+)
 
@@ -83,6 +86,12 @@
     } catch (e) {
         console.log(e);
     };
-}));
 
 ```
+
+
+### DRAG AND DROP INTERFACE
+- Learned and implemented with react beautiful DND
+- Works similar to context in react (need to wrap components with <DragDropContext/>, <Droppa le/> and <Draggable>) and then keep track of the orderings using an object with nested arrays and an onDragEnd event handler.
+- Had to create several new components to implement interface as well as modify it to work for cards (designed for list structures)
+- https://user-images.githubusercontent.com/2182637/53607406-c8f3a780-3c12-11e9-979c-7f3b5bd1bfbd.gif
