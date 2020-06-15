@@ -112,15 +112,11 @@ const App = (props) => {
       created: new Date(),
     }
 
-    const jsonNewMessage = JSON.stringify({
-      type: 'send-chat-message',
-      data: newMessage,
-      // player: username,
-    });
+    sendMessage('send-chat-message', newMessage)
 
-    console.log(`Sending message ${jsonNewMessage}...`);
+     console.log(`Sending message ${newMessage}...`);
 
-    webSocket.current.send(jsonNewMessage);
+    // webSocket.current.send(jsonNewMessage);
   };
 
   const handleLeave = () => {

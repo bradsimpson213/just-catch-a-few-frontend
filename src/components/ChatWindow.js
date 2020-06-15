@@ -14,6 +14,7 @@ const ChatWindow = ({ messages, handleSendMessage, handleLeave }) => {
         e.preventDefault()
         handleSendMessage(message);
         setMessage('');
+        console.log(message);
     };
 
     const handleLeaveOnClick = () => {
