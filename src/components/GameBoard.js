@@ -8,16 +8,13 @@ import { DragDropContext } from 'react-beautiful-dnd';
 
 import initialData from './initialData';
 
+import myavatar_1 from './avatars/myavatar_1.png'
+
 class GameBoard extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialData;
   }
-
-  handleChatHide = (e) => {};
-
-  onDragStart = () => {};  //not connected
-  onDragUpdate = () => {};  //not connected
 
   onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
@@ -101,7 +98,6 @@ class GameBoard extends React.Component {
             />
             <button
               className={styles.infoButton}
-              onClick={this.handleChatHide()}
             >
               Game Instructions
             </button>
@@ -111,7 +107,14 @@ class GameBoard extends React.Component {
             <div className={styles.playerActive}>
               <div className={styles.playerInfo}>
                 <div>{userInfo.userName}</div>
-                <img className={styles.avatar} src="/static/media/myavatar_1.50284975.png" />
+                <img
+                  className={styles.avatar}
+                  src={myavatar_1}
+                />
+                {/* <img
+                  className={styles.avatar}
+                  src="/static/media/myavatar_2.5d43da1b.png"
+                /> */}
 
                 {/* <div className={styles.avatar1}></div> */}
                 <div>
