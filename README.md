@@ -4,7 +4,7 @@
 - Site located at https://justcatchafew.herokuapp.com/
 
 ## MVP
-- Random Decks of Pokemon Cards (4-5 cards) generated for each player
+- Random Deck of Pokemon Cards (4 cards) generated for each player
 - Cards background color will change according to Pokemon Type
 - Users can chat via websockets
 - Cards will be drag and drop enabled
@@ -12,11 +12,11 @@
 - DB to track players, W/L records, avatars
 
 ## BONUS - FUTURE FEATURES
-- 2 players can actually play a game against each other (with bebsoclets)
+- 2 players can actually play a game against each other (with websockets)
 - Win/Lose on who has Pokemon/Cards left 
 - Add in type bonus/resistance damage
-- Player Avatars (tracked in DB)
 - Ability to play a computer
+- Transitions during gameplay to enhance user experience
 
 ## DB SETUP
 - Single table for user info
@@ -88,7 +88,6 @@
     };
 
 ```
-
 
 ### DRAG AND DROP INTERFACE
 - Learned and implemented with react beautiful DND
@@ -201,6 +200,5 @@ onDragEnd = (result) => {
       };
       this.setState(newState);
    };
-
 
 ```
