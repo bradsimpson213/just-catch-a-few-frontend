@@ -92,6 +92,115 @@
 
 ### DRAG AND DROP INTERFACE
 - Learned and implemented with react beautiful DND
-- Works similar to context in react (need to wrap components with <DragDropContext/>, <Droppa le/> and <Draggable>) and then keep track of the orderings using an object with nested arrays and an onDragEnd event handler.
+- Works similar to context in react (need to wrap components with <DragDropContext/>, 
+<Droppable/> and <Draggable>) passes props between components and then keeps track of the order using an object with nested arrays (stored in state) and an onDragEnd event handler.
 - Had to create several new components to implement interface as well as modify it to work for cards (designed for list structures)
-- https://user-images.githubusercontent.com/2182637/53607406-c8f3a780-3c12-11e9-979c-7f3b5bd1bfbd.gif
+
+```js
+//OBJECT TO TRACK ORDER
+const initialData = {
+    cards: {
+        'card-0': { id: 'card-0', content: 'card-1'},
+        'card-1': { id: 'card-1', content: 'card-2'},
+        'card-2': { id: 'card-2', content: 'card-3'},
+        'card-3': { id: 'card-3', content: 'card-4'}
+    },
+    cardHolders: {
+        'holder-1': {
+            id: 'holder-1',
+            title: 'player-hand',
+            cardIds: ['card-0', 'card-1', 'card-2', 'card-3'],
+        },
+        'holder-2': {
+            id: 'holder-2',
+            title: 'active-card',
+            cardIds: [],
+        }
+    },
+    handOrder: ['holder-1', 'holder-2' ],
+};
+
+//SAMPLE RENDER OF A DROPPABLE COMPONENT
+    render() {
+       return (
+          <div>
+            <Droppable
+              droppableId={this.props.holder.id} isDropDisabled={this.props.cards.length > 0} >
+              {(provided) => (
+                <div
+                  ref={provided.innerRef}
+                  className={styles.activeHolder}
+                  {...provided.droppableProps} >
+                  {this.props.cards.map((card, index) => (
+                    <PokeCard key={card.id} card={card} index={index} />
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </div>
+        );
+    };
+
+//METHOD TO HANDLE DROP EVENT
+onDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+  
+    if(!destination) {return};
+
+    if ( destination.droppableId === source.droppableId &&
+          destination.index === source.index
+    ) return;
+      
+    const cardHolderStart = this.state.cardHolders[source.droppableId];
+    const cardHolderFinish = this.state.cardHolders[destination.droppableId];
+
+    if ( cardHolderStart === cardHolderFinish) {
+      const newCardIds = Array.from(cardHolderStart.cardIds);
+      newCardIds.splice(source.index, 1);
+      newCardIds.splice(destination.index, 0, draggableId);
+
+      const newCardHolder = {
+        ...cardHolderStart,
+        cardIds: newCardIds,
+      };
+
+      const newState = {
+         ...this.state,
+          cardHolders: {
+          ...this.state.cardHolders,
+          [newCardHolder.id]: newCardHolder,
+          },
+      };
+      this.setState(newState);
+      return;
+      };
+
+      // MOVING FROM ONE HOLDER TO ANOTHGER
+      const startCardIds = Array.from(cardHolderStart.cardIds);
+      startCardIds.splice(source.index, 1);
+      const startCardHolder = {
+        ...cardHolderStart,
+        cardIds: startCardIds,
+      };
+
+      const finishCardIds = Array.from(cardHolderFinish.cardIds);
+      finishCardIds.splice(destination.index, 0, draggableId);
+      const finishCardHolder = {
+        ...cardHolderFinish,
+        cardIds: finishCardIds
+      }
+
+      const newState = {
+         ...this.state,
+          cardHolders: {
+          ...this.state.cardHolders,
+          [startCardHolder.id]: startCardHolder,
+          [finishCardHolder.id]: finishCardHolder,
+          },
+      };
+      this.setState(newState);
+   };
+
+
+```
