@@ -1,4 +1,4 @@
-# Gotta Catch A Few - Pokemon TCG Clone - By Brad Simpson
+# Just Catch A Few - Pokemon TCG Clone - By Brad Simpson
 - Pokemon expert knowledge credit to Andy Simpson
 
 - Site located at https://justcatchafew.herokuapp.com/
